@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="munits-demos-test-suite.xml" />
+	<munit:test name="munits-demos-test-suite-munits-demosFlow1Test" doc:id="0e0ee3bd-1731-4cb6-b0a6-3bd86187a927" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to munits-demosFlow1" doc:id="1c50bb0a-6bf2-43fa-b684-4570c3ca7c9d" name="munits-demosFlow1"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="f58c7227-6339-41dc-a409-ff0589421a84" actual='#["welcome"]' expected='#["welcom"]' message='#["payload has error"]'/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="munits-demos-test-suite-munits-demosFlow1Test1" doc:id="3015c9ab-9e98-4c25-a4e6-a7ccdeca3042" description="Test">
+			<munit:execution>
+				<flow-ref doc:name="Flow-ref to munits-demosFlow1" doc:id="a3a71758-da26-4793-94ed-22bd651ac146" name="munits-demosFlow1" />
+			</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="3ded86d9-8231-4ac7-a447-d0d780b55194" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+			</munit:validation>
+		</munit:test>
+
+
+</mule>
